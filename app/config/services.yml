@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    AppBundle\Service\MarvelService:
+        arguments:
+            $marvel_private_key: '%marvel_private_key%'
+            $marvel_public_key: '%marvel_public_key%'
