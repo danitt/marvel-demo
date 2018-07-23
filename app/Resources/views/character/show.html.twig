@@ -16,7 +16,27 @@
   </div>
 
   <div class="row">
-    TODO
+    <div class="columns medium-4">
+      <div class="thumbnail">
+        <img src="{{ character['thumbnail']['path'] }}.{{ character['thumbnail']['extension'] }}">
+      </div>
+    </div>
+    <div class="columns medium-8">
+      <div class="row">
+        <div class="columns">
+          <h4><b>Name:</b> {{ character['name'] }}</h4>
+          <p>{{ character['description'] }}</p>
+        </div>
+        <div class="columns">
+          <b>Appears in the following comics:</b>
+          <ul>
+            {% for comic in comicNames %}
+              <li>{{ comic }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div> <!-- ./container -->

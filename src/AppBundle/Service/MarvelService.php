@@ -32,13 +32,13 @@ class MarvelService
     }
   
     public function listCharacters() {
-      $response = $this->get('characters', [ 'limit' => 5 ]);
+      $response = $this->get('characters', [ 'limit' => 20 ]);
       return $response['data']['results'];
     }
 
     public function showCharacter($characterId) {
       $response = $this->get('characters/'.$characterId);
-      return $response['data']['results'];
+      return $response['data']['results'][0];
     }
 
 }
