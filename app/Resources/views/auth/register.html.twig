@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marvel API - Register{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+
+<div class="wrapper">
+
+  <div class="row">
+    <div class="columns text-center">
+      <h2 style="border-bottom: 1px solid #eeeeee; margin-bottom: 15px; ">Marvel API: Register</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns medium-6 medium-offset-3">
+      {% if errors %}
+          <div>{{ errors }}</div>
+      {% endif %}
+
+      <form action="{{ path('register') }}" method="post" class="form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="_username" />
+
+          <label for="username">Password:</label>
+          <input type="text" id="password" name="_password" />
+
+          <button type="submit" class="button hollow">register</button>
+      </form>
+    </div>
+  </div>
+
+</div> <!-- ./container -->
+{% endblock %}

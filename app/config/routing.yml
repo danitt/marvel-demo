@@ -6,6 +6,14 @@ login:
   path: /
   defaults: { _controller: AppBundle:Auth:login }
 
+logout:
+  path: /logout
+  defaults: { _controller: AppBundle:Auth:login }
+
+register:
+  path: /register
+  defaults: { _controller: AppBundle:Auth:register }
+
 home:
   path: /home
   defaults: { _controller: AppBundle:Home:index }

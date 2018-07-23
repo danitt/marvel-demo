@@ -10,6 +10,8 @@ class HomeController extends Controller
 {
     public function indexAction(Request $request)
     {
-        return $this->render('home.html.twig');
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $user = $this->getUser();
+        return $this->render('home.html.twig', [ 'username' => $user->getUsername() ]);
     }
 }

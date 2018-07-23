@@ -15,6 +15,7 @@ class CharacterController extends Controller
   }
     public function indexAction()
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $characters = $this->marvelService->listCharacters();
         return $this->render('character/index.html.twig', [
             'characters' => $characters,
@@ -23,6 +24,7 @@ class CharacterController extends Controller
 
     public function showAction($id, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         // $characterInfo = $this->marvelService->showCharacter($id);
         $characterInfo = unserialize($this->characterSample);
         $comicNames = array_map(function($comic) {
