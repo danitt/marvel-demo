@@ -2,8 +2,12 @@
 #     resource: '@AppBundle/Controller/'
 #     type: annotation
 
-home:
+login:
   path: /
+  defaults: { _controller: AppBundle:Auth:login }
+
+home:
+  path: /home
   defaults: { _controller: AppBundle:Home:index }
 
 character_list:
@@ -13,3 +17,7 @@ character_list:
 character_show:
   path: /characters/{id}
   defaults: { _controller: AppBundle:Character:show }
+
+favourite_add:
+  path: /favourites/add
+  defaults: { _controller: AppBundle:Favourite:add }

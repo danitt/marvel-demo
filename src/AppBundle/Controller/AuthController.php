@@ -6,10 +6,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomeController extends Controller
+class AuthController extends Controller
 {
-    public function indexAction(Request $request)
+    public function loginAction(Request $request)
     {
-        return $this->render('home.html.twig');
+        return $this->render('login.html.twig');
     }
 }

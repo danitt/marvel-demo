@@ -23,8 +23,8 @@ class CharacterController extends Controller
 
     public function showAction($id, Request $request)
     {
-        $characterInfo = $this->marvelService->showCharacter($id);
-        // $characterInfo = unserialize($this->characterSample);
+        // $characterInfo = $this->marvelService->showCharacter($id);
+        $characterInfo = unserialize($this->characterSample);
         $comicNames = array_map(function($comic) {
           return $comic['name'];
         }, $characterInfo['comics']['items']);

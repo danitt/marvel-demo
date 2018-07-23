@@ -7,7 +7,8 @@
 
 </style>
 
-<div class="container">
+{% include 'nav.html.twig' %}
+<div class="wrapper">
 
   <div class="row">
     <div class="columns text-center">
@@ -18,13 +19,19 @@
   <div class="row">
     <div class="columns medium-4">
       <div class="thumbnail">
-        <img src="{{ character['thumbnail']['path'] }}.{{ character['thumbnail']['extension'] }}">
+        (temporarily disabled)
+        {# <img src="{{ character['thumbnail']['path'] }}.{{ character['thumbnail']['extension'] }}"> #}
       </div>
     </div>
     <div class="columns medium-8">
       <div class="row">
         <div class="columns">
-          <h4><b>Name:</b> {{ character['name'] }}</h4>
+          <h4>
+            <b>Name:</b> {{ character['name'] }}
+            <button id="addFavourite" class="button hollow success" style="float: right;">
+              Set Favourite
+            </button>
+          </h4>
           <p>{{ character['description'] }}</p>
         </div>
         <div class="columns">
@@ -40,4 +47,21 @@
   </div>
 
 </div> <!-- ./container -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (!$) {
+      console.warn('jQuery not available');
+      return;
+    }
+    $('#addFavourite').click(function() {
+      const pathParts = String(window.location.href).split('/');
+      const characterId = pathParts[pathParts.length-1];
+      console.log('adding favourite for characterId:', characterId);
+      $.post('/favourites/add', { characterId }, function(result) {
+        console.log('XHR result', result);
+      });
+    });
+  });
+</script>
 {% endblock %}
