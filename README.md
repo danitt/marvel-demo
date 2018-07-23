@@ -1,1 +1,2 @@
-# marvel-demo
+Symfony/Marvel Example Application
+========================
