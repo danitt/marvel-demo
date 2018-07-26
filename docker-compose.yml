@@ -1,31 +1,32 @@
-web:
-  image: uqitsss/symfony-php7
-  environment:
-    - APP_RUN_MODE=dev
-  ports:
-    - "8080:80"
-    - "4430:443"
-  volumes:
-    - ./:/php
-  working_dir: /php
-  links:
-    - mysql
-mysql:
-  image: mysql:5.6
-  environment:
-    - MYSQL_ROOT_PASSWORD=12345
-    - MYSQL_DATABASE=marvel
-    - MYSQL_USER=marvel_user
-    - MYSQL_PASSWORD=password
-  ports:
-    - "33060:3306"
-  volumes:
-    - ./db:/docker-entrypoint-initdb.d
-build: &defaults
-  image: node:8.5
-  volumes:
-    - ./:/php
-  working_dir: /php
-watch:
-  <<: *defaults
-  command: npx encore dev --watch
+version: "2"
+services:
+  web:
+    image: uqitsss/symfony-php7-xdebug
+    environment:
+      - APP_RUN_MODE=dev
+    ports:
+      - "8080:80"
+      - "4430:443"
+    volumes:
+      - ./:/php
+      - ./var/logs:/logs
+    working_dir: /php
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwerty
+      - MYSQL_DATABASE=marvel
+  build: &defaults
+    image: node:8.1
+    volumes:
+      - ./:/php
+    working_dir: /php
+  sass: 
+    <<: *defaults
+    command: npm rebuild node-sass
+  watch:
+    <<: *defaults
+    command: yarn assets:watch
+    depends_on: [ sass ]
