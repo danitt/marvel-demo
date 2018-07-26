@@ -22,9 +22,18 @@ class FavouriteController extends Controller
     public function indexAction()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        // $characters = $this->marvelService->listCharacters();
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $userFavourites = $em->getRepository(Favourite::class)
+        ->getFavourites($user->getId())
+        ->getResult();
+        $favourites = [];
+        foreach($userFavourites as $fav) {
+          $character = $this->marvelService->showCharacter($fav->characterId);
+          array_push($favourites, $character);
+        }
         return $this->render('favourite.html.twig', [
-            'favourites' => [],
+          'favourites' => $favourites,
         ]);
     }
 
