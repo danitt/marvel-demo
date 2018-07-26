@@ -10,6 +10,10 @@ use AppBundle\Entity\Favourite;
 
 class HomeController extends Controller
 {
+
+  /**
+   * @Route("/home", name="home")
+   */
     public function indexAction(Request $request)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

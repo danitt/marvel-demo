@@ -1,35 +1,3 @@
-# app:
-#     resource: '@AppBundle/Controller/'
-#     type: annotation
-
-login:
-  path: /
-  defaults: { _controller: AppBundle:Auth:login }
-
-logout:
-  path: /logout
-  defaults: { _controller: AppBundle:Auth:login }
-
-register:
-  path: /register
-  defaults: { _controller: AppBundle:Auth:register }
-
-home:
-  path: /home
-  defaults: { _controller: AppBundle:Home:index }
-
-character_list:
-  path: /characters
-  defaults: { _controller: AppBundle:Character:index }
-
-character_show:
-  path: /characters/{id}
-  defaults: { _controller: AppBundle:Character:show }
-
-favourite_add:
-  path: /favourites/add
-  defaults: { _controller: AppBundle:Favourite:add }
-
-favourite_remove:
-  path: /favourites/remove
-  defaults: { _controller: AppBundle:Favourite:remove }
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

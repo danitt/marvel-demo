@@ -3,11 +3,10 @@
 {% block title %}Marvel Character Detail{% endblock %}
 
 {% block body %}
-<style>
-
-</style>
 
 {% include 'nav.html.twig' %}
+{% include 'tabs.html.twig' %}
+
 <div class="wrapper">
 
   <div class="row">
@@ -22,20 +21,11 @@
         <img src="{{ character['thumbnail']['path'] }}.{{ character['thumbnail']['extension'] }}">
       </div>
     </div>
-    <div class="columns medium-8">
+    <div class="columns medium-6">
       <div class="row">
         <div class="columns">
           <h4>
             <b>Name:</b> {{ character['name'] }}
-            {% if isFavourite %}
-              <button id="removeFavourite" class="button hollow alert" style="float: right;">
-                Remove Favourite
-              </button>
-            {% else %}
-              <button id="addFavourite" class="button hollow success" style="float: right;">
-                Set Favourite
-              </button>
-            {% endif %}
           </h4>
           <p>{{ character['description'] }}</p>
         </div>
@@ -49,7 +39,21 @@
         </div>
       </div>
     </div>
+    <div class="columns medium-2">
+      {% if isFavourite %}
+        <button id="removeFavourite" class="button hollow alert" style="float: right;">
+          Remove Favourite
+        </button>
+      {% else %}
+        <button id="addFavourite" class="button hollow success" style="float: right;">
+          Set Favourite
+        </button>
+      {% endif %}
+    </div>
   </div>
 
 </div> <!-- ./container -->
+
+{% include 'footer.html.twig' %}
+
 {% endblock %}

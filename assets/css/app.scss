@@ -1,1 +1,17 @@
 @import '~foundation-sites/dist/css/foundation.min.css';
+
+@import './header.scss';
+
+body {
+  background-color: #F8F8F9;
+}
+
+.page__title {
+  color: #49075e;
+  font-size: 22px;
+}
+
+.button.hollow.white {
+  border: 1px solid #F8F8F9;
+  color: #F8F8F9;
+}

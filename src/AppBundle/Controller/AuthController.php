@@ -12,6 +12,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AuthController extends Controller
 {
+
+  /**
+   * @Route("/", name="login")
+   * @Route("/logout", name="logout")
+   */
     public function loginAction(Request $request, AuthenticationUtils $authenticationUtils)
     {
         $user = $this->getUser();
@@ -27,6 +32,9 @@ class AuthController extends Controller
         ]);
     }
 
+  /**
+   * @Route("/register", name="register")
+   */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
 

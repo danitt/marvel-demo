@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Marvel Character List{% endblock %}
+{% block title %}Marvel Favourites List{% endblock %}
 
 {% block body %}
 <style>
@@ -14,26 +14,26 @@
 
   <div class="row">
     <div class="columns text-center">
-      <h2 style="border-bottom: 1px solid #eeeeee; margin-bottom: 15px; ">Character List</h2>
+      <h2 style="border-bottom: 1px solid #eeeeee; margin-bottom: 15px; ">Favourites List</h2>
     </div>
   </div>
 
   <div class="row">
-    {% for character in characters %}
+    {% for favourite in favourites %}
         <div class="columns medium-2" style="float: left;">
-          <a href="/characters/{{ character['id'] }}">
+          <a href="/characters/{{ favourite['id'] }}">
             <div class="card">
               <div class="card-divider">
-                {{ character['name'] }}
+                {{ favourite['name'] }}
               </div>
               <img style="height: 200px;"
-                src="{{ character['thumbnail']['path'] }}.{{ character['thumbnail']['extension'] }}">
+                src="{{ favourite['thumbnail']['path'] }}.{{ favourite['thumbnail']['extension'] }}">
             </div>
           </a>
         </div>
     {% else %}
         <div class="columns medium-8 medium-offset-2 text-center">
-          <h3 class="subheader">Loading Characters..</h3>
+          <h3 class="subheader">Loading Favourites..</h3>
         </div>
     {% endfor %}
   </div>
