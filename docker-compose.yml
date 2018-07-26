@@ -13,6 +13,8 @@ services:
     working_dir: /php
     depends_on:
       - mysql
+    links:
+      - mysql
   mysql:
     image: mysql:5.6
     environment:

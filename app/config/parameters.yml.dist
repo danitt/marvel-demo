@@ -1,13 +1,16 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:
-    database_port:
-    database_name:
-    database_user:
-    database_password:
-    mailer_transport:
-    mailer_host:
-    mailer_user:
-    mailer_password:
-    secret:
-    marvel_private_key:
-    marvel_public_key:
+    database_host: mysql
+    database_port: 3306
+    database_name: marvel
+    database_user: root
+    database_password: qwerty
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+    marvel_private_key: 5cffa20537e7f75f744692cde999389b04b0c661
+    marvel_public_key: 5e81be6d83db385fc40897aa9436050d
