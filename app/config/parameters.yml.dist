@@ -11,6 +11,6 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
-    secret: ThisTokenIsNotSoSecretChangeIt
-    marvel_private_key: 5cffa20537e7f75f744692cde999389b04b0c661
-    marvel_public_key: 5e81be6d83db385fc40897aa9436050d
+    secret: APP_SECRET
+    marvel_private_key: MARVEL_PRIVATE_KEY
+    marvel_public_key: MARVEL_PUBLIC_KEY
