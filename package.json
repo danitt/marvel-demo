@@ -11,7 +11,6 @@
     "start": "docker-compose up",
     "stop": "docker-compose down",
     "bash": "docker-compose exec web bash",
-    "db:init": "sh ./scripts/init.sh",
     "assets:build": "encore dev",
     "assets:build:prod": "encore production",
     "assets:watch": "encore dev --watch"
