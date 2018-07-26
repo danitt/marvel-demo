@@ -1,5 +1,12 @@
 version: "2"
 services:
+  mysql:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwerty
+      - MYSQL_DATABASE=marvel
+    ports:
+      - "33060:3306"
   web:
     image: uqitsss/symfony-php7-xdebug
     environment:
@@ -15,18 +22,13 @@ services:
       - mysql
     links:
       - mysql
-  mysql:
-    image: mysql:5.6
-    environment:
-      - MYSQL_ROOT_PASSWORD=qwerty
-      - MYSQL_DATABASE=marvel
-    ports:
-      - "33060:3306"
   build: &defaults
     image: node:8.1
     volumes:
       - ./:/php
     working_dir: /php
+    depends_on:
+      - web
   sass: 
     <<: *defaults
     command: npm rebuild node-sass
@@ -34,3 +36,5 @@ services:
     <<: *defaults
     command: yarn assets:watch
     depends_on: [ sass ]
+    depends_on:
+      - sass

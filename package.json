@@ -11,6 +11,8 @@
     "start": "docker-compose up",
     "stop": "docker-compose down",
     "bash": "docker-compose exec web bash",
+    "lint": "docker-compose run --rm web make tests",
+    "db:reset": "docker-compose run --rm web make reset_db",
     "assets:build": "encore dev",
     "assets:build:prod": "encore production",
     "assets:watch": "encore dev --watch"
