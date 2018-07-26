@@ -29,3 +29,7 @@ character_show:
 favourite_add:
   path: /favourites/add
   defaults: { _controller: AppBundle:Favourite:add }
+
+favourite_remove:
+  path: /favourites/remove
+  defaults: { _controller: AppBundle:Favourite:remove }

@@ -27,9 +27,15 @@
         <div class="columns">
           <h4>
             <b>Name:</b> {{ character['name'] }}
-            <button id="addFavourite" class="button hollow success" style="float: right;">
-              Set Favourite
-            </button>
+            {% if isFavourite %}
+              <button id="removeFavourite" class="button hollow alert" style="float: right;">
+                Remove Favourite
+              </button>
+            {% else %}
+              <button id="addFavourite" class="button hollow success" style="float: right;">
+                Set Favourite
+              </button>
+            {% endif %}
           </h4>
           <p>{{ character['description'] }}</p>
         </div>
@@ -46,8 +52,4 @@
   </div>
 
 </div> <!-- ./container -->
-{% endblock %}
-
-{% block javascripts %}
-  <script src="{{ asset('js/favourites.js') }}"></script>
 {% endblock %}

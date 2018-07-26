@@ -17,17 +17,17 @@ class Favourite
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    public $id;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $userId;
+    public $userId;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $characterId;
+    public $characterId;
 
 
     /**
