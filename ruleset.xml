@@ -1,0 +1,9 @@
+<ruleset name="Marvel">
+  <description>
+    Marvel Ruleset
+  </description>
+  <rule ref="Squiz.PHP.CommentedOutCode" />
+  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+    <exclude name="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine" />
+  </rule>
+</ruleset>

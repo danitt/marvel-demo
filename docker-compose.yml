@@ -20,6 +20,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=qwerty
       - MYSQL_DATABASE=marvel
+    ports:
+      - "33060:3306"
   build: &defaults
     image: node:8.1
     volumes:
